@@ -30,7 +30,7 @@ resource "docker_container" "nodered_container" {
   image = docker_image.nodered_image.image_id
   ports {
     internal = 1880
-    # external = 1880
+    external = 1880
   }
 }
 
@@ -39,26 +39,26 @@ resource "docker_container" "nodered_container2" {
   image = docker_image.nodered_image.image_id
   ports {
     internal = 1880
-    # external = 1880
+    external = 1880
   }
 }
 
 output "ip-address" {
   value = join(":", [docker_container.nodered_container.network_data[0].ip_address, docker_container.nodered_container.ports[0].external])
-  description = "The IP address and external port of the container"
+  description = "The IP address and external port of the first container"
 }
 
 output "ip-address2" {
   value = join(":", [docker_container.nodered_container2.network_data[0].ip_address, docker_container.nodered_container2.ports[0].external])
-  description = "The IP address and external port of the container"
+  description = "The IP address and external port of the second container"
 }
 
 output "container-name" {
   value = docker_container.nodered_container.name
-  description = "The name of the container"
+  description = "The name of the first container"
 }
 
 output "container-name2" {
   value = docker_container.nodered_container2.name
-  description = "The name of the container"
+  description = "The name of the second container"
 }
