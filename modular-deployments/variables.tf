@@ -10,6 +10,10 @@ variable "image" {
       dev  = "quay.io/influxdb/influxdb:v2.0.2"
       prod = "quay.io/influxdb/influxdb:v2.0.2"
     }
+    grafana = {
+      dev  = "grafana/grafana"
+      prod = "grafana/grafana"
+    }
   }
 }
 
@@ -33,6 +37,6 @@ variable "int_port" {
 
   validation {
     condition     = var.int_port == 1880
-    error_message = "The internal port must be 1880"
+    error_message = "The internal port must be 1880."
   }
 }
