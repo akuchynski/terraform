@@ -23,3 +23,10 @@ variable "dbpassword" {
   type      = string
   sensitive = true
 }
+
+# --- compute variables ---
+
+variable "k3stoken" {
+  type      = string
+  sensitive = true
+}

@@ -13,3 +13,6 @@ variable "dbpassword" {}
 variable "db_endpoint" {}
 variable "user_data_path" {}
 variable "lb_target_group_arn" {}
+variable "tg_port" {}
+variable "private_key_path" {}
+variable "k3s_token" {}

@@ -45,8 +45,8 @@ module "compute" {
   source              = "./compute"
   public_sg           = module.networking.public_sg
   public_subnets      = module.networking.public_subnets
-  instance_count      = 2
-  instance_type       = "t3.micro"
+  instance_count      = 1
+  instance_type       = "t3.small"
   vol_size            = "20"
   public_key_path     = "/home/ubuntu/.ssh/keymtc.pub"
   key_name            = "keymtc"
@@ -54,6 +54,9 @@ module "compute" {
   dbuser              = var.dbuser
   dbpassword          = var.dbpassword
   db_endpoint         = module.database.db_endpoint
+  k3s_token           = var.k3stoken
   user_data_path      = "${path.root}/userdata.tpl"
   lb_target_group_arn = module.loadbalancing.lb_target_group_arn
+  tg_port             = 8000
+  private_key_path    = "/home/ubuntu/.ssh/keymtc"
 }
